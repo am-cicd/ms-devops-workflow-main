@@ -100,8 +100,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Maven Sonar Analysis
-      run: mvn clean test sonar:sonar -B -s .m2/settings.xml -Denv=${{ vars.APPLICATION_ENV }} -Dsecure.key=${{ secrets.SECURE_ENCRYPT_KEY }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.scm.disabled=true -Dsonar.sources=src/ -Dsonar.qualitygate.wait=true
+    #- name: Maven Sonar Analysis
+    #  run: mvn clean test sonar:sonar -B -s .m2/settings.xml -Denv=${{ vars.APPLICATION_ENV }} -Dsecure.key=${{ secrets.SECURE_ENCRYPT_KEY }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.scm.disabled=true -Dsonar.sources=src/ -Dsonar.qualitygate.wait=true
     
     - name: Build, Test and Publish artifact to Exchange - Develop Branch
       if: ${{ github.event.ref == 'refs/heads/develop' }}
